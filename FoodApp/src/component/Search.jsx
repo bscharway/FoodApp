@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import styles from "./search.module.css";
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 const API_KEY = import.meta.env.VITE_API_KEY;
@@ -16,8 +17,8 @@ export default function Search({ foodData, setFoodData }) {
     fetchFood();
   }, [query]);
   return (
-    <div>
-      <input
+    <div className={styles.searchContainer}>
+      <input className={styles.input}
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         type="text"
