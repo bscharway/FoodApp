@@ -5,6 +5,7 @@ const BASE_URL = import.meta.env.VITE_BASE_URL;
 const API_KEY = import.meta.env.VITE_API_KEY;
 
 export default function Search({ foodData, setFoodData }) {
+  const [inputValue, setInputValue] = useState("pizza");
   const [query, setQuery] = useState("pizza");
   // Syntax of a useEffect hoolk
   useEffect(() => {
@@ -16,11 +17,18 @@ export default function Search({ foodData, setFoodData }) {
     }
     fetchFood();
   }, [query]);
+
+  function handleKeyDown(e){
+    if (e.key === "Enter"){
+      setQuery(inputValue);
+    }
+  }
   return (
     <div className={styles.searchContainer}>
       <input className={styles.input}
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+        onKeyDown={handleKeyDown} 
         type="text"
       ></input>
     </div>

@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import styles from "./fooddetails.module.css"
+import styles from "./fooddetails.module.css";
+import ItemList from "./ItemList";
 
 export default function Fooddetails({ foodId, foodData }) {
   const [food, setFood] = useState({});
-  const [isLoadign, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const url = `https://api.spoonacular.com/recipes/${foodId}/information`;
   const API_KEY = import.meta.env.VITE_API_KEY;
 
@@ -29,32 +30,32 @@ export default function Fooddetails({ foodId, foodData }) {
           <span>
             <strong> 👨‍👩‍👧‍👦Serves {food.servings} </strong>
           </span>
-          <span><strong>{food.vegetarian ? "🥕Vegetarian" : "🥩None vegetarian"}</strong></span>
-          <span><strong>{food.vegan ? " 🐮Vegan meal" : ""}</strong></span>
+          <span>
+            <strong>
+              {food.vegetarian ? "🥕Vegetarian" : "🥩None vegetarian"}
+            </strong>
+          </span>
+          <span>
+            <strong>{food.vegan ? " 🐮Vegan meal" : ""}</strong>
+          </span>
         </div>
         <div>
-          <span><strong>💲{food.pricePerServing / 100} Per serving</strong></span>
+          <span>
+            <strong>💲{food.pricePerServing / 100} Per serving</strong>
+          </span>
         </div>
       </div>
       <div>
         <h2>Ingredients</h2>
         <div>
-            <ol>
-                {isLoadign ? (
-              <p>Loading...</p>
-            ) : (
-              food.extendedIngredients.map((ingreedient) => (
-                <li><img src={`https://spoonacular.com/cdn/ingredients_100x100/`+ingreedient.image}/>{ingreedient.original}</li>
-              ))
-            )}
-            </ol>
+          <ul>{<ItemList isLoading={isLoading} food={food} />}</ul>
         </div>
       </div>
       <div>
         <h2>Instructions</h2>
         <div className={styles.recipeInstructions}>
           <ol>
-            {isLoadign ? (
+            {isLoading ? (
               <p>Loading...</p>
             ) : (
               food.analyzedInstructions[0].steps.map((step) => (
