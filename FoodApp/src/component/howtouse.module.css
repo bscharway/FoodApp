@@ -1,0 +1,152 @@
+.howToUseContainer {
+  max-width: 800px;
+  margin: 20px auto;
+  background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+  border-radius: 12px;
+  border: 2px solid rgba(102, 126, 234, 0.2);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.howToUseContainer:hover {
+  border-color: rgba(102, 126, 234, 0.4);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 20px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #667eea08 0%, #764ba208 100%);
+  transition: background 0.3s ease;
+  user-select: none;
+}
+
+.header:hover {
+  background: linear-gradient(135deg, #667eea12 0%, #764ba212 100%);
+}
+
+.icon {
+  font-size: 1.5rem;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.title {
+  flex: 1;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.toggleIcon {
+  font-size: 0.9rem;
+  color: #667eea;
+  transition: transform 0.3s ease;
+}
+
+.content {
+  padding: 20px;
+  padding-top: 10px;
+  background: white;
+  border-top: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 15px;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+  transition: all 0.3s ease;
+}
+
+.step:last-child {
+  margin-bottom: 0;
+}
+
+.step:hover {
+  background: #f0f4ff;
+  transform: translateX(5px);
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.1);
+}
+
+.stepNumber {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(102, 126, 234, 0.3);
+}
+
+.stepText {
+  flex: 1;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #555;
+  padding-top: 2px;
+}
+
+.stepText strong {
+  color: #667eea;
+  font-weight: 600;
+  background: #f0f4ff;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .howToUseContainer {
+    margin: 15px 10px;
+  }
+
+  .header {
+    padding: 12px 15px;
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+
+  .content {
+    padding: 15px;
+    padding-top: 10px;
+  }
+
+  .step {
+    padding: 10px;
+    gap: 12px;
+  }
+
+  .stepNumber {
+    width: 24px;
+    height: 24px;
+    font-size: 0.8rem;
+  }
+
+  .stepText {
+    font-size: 0.9rem;
+  }
+}
+
